@@ -10,7 +10,7 @@ class Supplier(models.Model):
     name = models.CharField(max_length=200)
     addr = models.CharField(max_length=200)
     phone = models.CharField(max_length=20)
-    def __str__(self):
+    def __unicode__(self):
         return self.name
 
 class Wine(models.Model):
@@ -24,7 +24,7 @@ class Wine(models.Model):
     alcohol = models.FloatField()
     volume = models.IntegerField()
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE)
-    def __str__(self):
+    def __unicode__(self):
         return self.name
     def is_overdue(self):
         return date.today().year - self.date.year > self.shelf_life
