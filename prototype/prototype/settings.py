@@ -26,7 +26,8 @@ SECRET_KEY = 'bi0r+%3yn#2mm!6_(2lzce%h*v(2@*_x2d3mb4=f5c$fgp*_r#'
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    u'111.231.62.83'
+    u'111.231.62.83',
+    u'127.0.0.1',
 ]
 
 
@@ -76,20 +77,26 @@ WSGI_APPLICATION = 'prototype.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# Here we have 2 databases: one in local dir and one in cloud.
+# In develop phase we will just use one and comment another one.
+# In production phase only cloud one will be used.
 DATABASES = {
+#    'local': {
     'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-         'ENGINE': 'django.db.backends.mysql',
-         'NAME': 'test',
-         'USER': 'dbtest',
-         'PASSWORD': 'dbtest66',
-         'HOST': '172.17.0.14',
-         'PORT': '3306',
-         'OPTIONS': {
-                 'sql_mode': 'STRICT_TRANS_TABLES',
+         'ENGINE': 'django.db.backends.sqlite3',
+         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
             },
-    }
+#    'cloud': {
+#   'default' : {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'test',
+#         'USER': 'dbtest',
+#         'PASSWORD': 'dbtest66',
+#         'HOST': '172.17.0.14',
+#         'PORT': '3306',
+#         'OPTIONS': {
+#                 'sql_mode': 'STRICT_TRANS_TABLES',
+#            },
 }
 
 

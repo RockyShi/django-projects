@@ -1,7 +1,7 @@
 {% if latest_wine_list %}
     <ul>
     {% for wine in latest_wine_list %}
-        <li><a href="/wines/wine/{{ wine.id }}/" >{{ wine.name }}</a></li>
+        <li><a href="{% url 'wines:wine' wine.id %}" >{{ wine.name }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
