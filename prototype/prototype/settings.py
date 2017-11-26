@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     u'111.231.62.83',
     u'127.0.0.1',
+    u'localhost.localdomain',
 ]
 
 
@@ -82,21 +83,22 @@ WSGI_APPLICATION = 'prototype.wsgi.application'
 # In production phase only cloud one will be used.
 DATABASES = {
 #    'local': {
-    'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-            },
-#    'cloud': {
-#   'default' : {
-#         'ENGINE': 'django.db.backends.mysql',
-#         'NAME': 'test',
-#         'USER': 'dbtest',
-#         'PASSWORD': 'dbtest66',
-#         'HOST': '172.17.0.14',
-#         'PORT': '3306',
-#         'OPTIONS': {
-#                 'sql_mode': 'STRICT_TRANS_TABLES',
+#    'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
 #            },
+#    'cloud': {
+    'default' : {
+          'ENGINE': 'django.db.backends.mysql',
+          'NAME': 'test',
+          'USER': 'dbtest',
+          'PASSWORD': 'dbtest66',
+          'HOST': '172.17.0.14',
+          'PORT': '3306',
+          'OPTIONS': {
+                  'sql_mode': 'STRICT_TRANS_TABLES',
+             },
+    },
 }
 
 
