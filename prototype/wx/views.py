@@ -48,9 +48,8 @@ def index(request):
         msgType = xml.find('MsgType').text
 
         if msgType == 'text':
-            content = "您好,欢迎来到顶好用!功能正在开发中!"
+            content = u"您好,欢迎来到顶好用!功能正在开发中!"
             replyMsg = TextMsg(toUser, fromUser, content)
-            print "成功了!!!!!!!!!!!!!!!!!!!"
             print replyMsg
             return HttpResponse(replyMsg.send())
 
